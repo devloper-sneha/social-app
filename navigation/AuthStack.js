@@ -5,7 +5,7 @@ import LoginScreen from '../screens/LoginScreen';
 
 const Auth = createNativeStackNavigator();
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const AuthStack = () => {
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
@@ -22,12 +22,10 @@ const AuthStack = () => {
     }, []);
     if (isFirstLaunch === true) {
         return (
-            <NavigationContainer>
                 <Auth.Navigator>
                     <Auth.Screen name='Onboarding' component={OnboardingScreen} />
                     <Auth.Screen name='Login' component={LoginScreen} />
                 </Auth.Navigator>
-            </NavigationContainer>
         );
     } else {
         return (

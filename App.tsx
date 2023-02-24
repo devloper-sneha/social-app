@@ -18,7 +18,6 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import Providers from './navigation';
-import Routes from './navigation/Routes';
 
 
 const App = () => {
@@ -26,7 +25,9 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  <Routes />
+  return(
+    <Providers />
+  )
 }
 
 export default App;
