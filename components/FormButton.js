@@ -4,8 +4,8 @@ import { windowHeight } from '../utils/Dimensions';
 
 const FormButton = ({buttonTitle,...rest}) => {
   return (
-    <TouchableOpacity {...rest}>
-        <Text>{buttonTitle}</Text>
+    <TouchableOpacity style={styles.buttonContainer} {...rest}>
+        <Text style={styles. buttonText}>{buttonTitle}</Text>
     </TouchableOpacity>
   )
 }
@@ -23,7 +23,7 @@ const styles=StyleSheet.create({
         justifyContent:'center',
         borderRadius:3,
     },
-    buttnText:{
+    buttonText:{
         fontSize:18,
         fontWeight:'bold',
         color:'#ffffff'
