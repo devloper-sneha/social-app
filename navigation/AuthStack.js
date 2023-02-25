@@ -2,10 +2,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { OnboardingScreen } from '../screens/OnboardingScreen';
 import LoginScreen from '../screens/LoginScreen';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const Auth = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 import React, { useEffect, useState } from 'react'
+import SignUpScreen from '../screens/SignUpScreen';
+import { View } from 'react-native';
 
 const AuthStack = () => {
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
@@ -22,10 +25,44 @@ const AuthStack = () => {
     }, []);
     if (isFirstLaunch === true) {
         return (
-                <Auth.Navigator>
-                    <Auth.Screen name='Onboarding' component={OnboardingScreen} />
-                    <Auth.Screen name='Login' component={LoginScreen} />
-                </Auth.Navigator>
+            <Stack.Navigator>
+                <Stack.Screen
+                    name='Onboarding'
+                    component={OnboardingScreen}
+                    options={{
+                        header: () => null
+                    }}
+                />
+                <Stack.Screen
+                    name='Login'
+                    component={LoginScreen}
+                    options={{
+                        header: () => null
+                    }}
+                />
+                <Stack.Screen
+                    name='SignUp'
+                    component={SignUpScreen}
+                    options={{
+                        title: '',
+                        headerStyle: {
+                            backgroundColor: '#f9fafd',
+                            shadowColor: '#f9fafd',
+                            elevation: 0
+                        },
+                        headerLeft: () => {
+                            <View>
+                                <FontAwesome.Button
+                                    name='arrow-left'
+                                    size={25}
+                                    backgroundColor='#f9fafd'
+                                    onPress={() => navigation.navigate('Login')}
+                                />
+                            </View>
+                        }
+                    }}
+                />
+            </Stack.Navigator>
         );
     } else {
         return (

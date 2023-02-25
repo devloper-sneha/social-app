@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
 import SocialButton from '../components/SocialButton';
-import { logo } from '../utils/assets';
 
-const LoginScreen = ({ navigation }) => {
+const SignUpScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
-      <Image source={logo} style={styles.logo} />
-      <Text style={styles.text}>Social App</Text>
+      <Text style={styles.text}>Create an account</Text>
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
@@ -29,12 +27,19 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry={true}
       />
       <FormButton
-        buttonTitle="Sign In"
-        onPress={() => Alert.alert("Signed In")}
+        buttonTitle="Sign Up"
+        onPress={() => Alert.alert("Signed up")}
       />
-      <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
-        <Text style={styles.navButtonText}>Forgot Password?</Text>
-      </TouchableOpacity>
+      <View style={styles.textPrivate} onPress={() => { }}>
+        <Text style={styles.color_textPrivate}>By registering, you confirm that you accept our </Text>
+        <TouchableOpacity onPress={()=>alert("Terms of service")}>
+          <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>Terms of Service</Text>
+        </TouchableOpacity>
+        <Text style={styles.color_textPrivate}>and</Text>
+        <TouchableOpacity onPress={()=>alert("TPrivacy Policy")}>
+          <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>Privacy Policy.</Text>
+        </TouchableOpacity>
+      </View>
       <SocialButton
         buttonTitle="Sign In with Facebook"
         buttonType="facebook"
@@ -56,7 +61,7 @@ const LoginScreen = ({ navigation }) => {
   )
 }
 
-export default LoginScreen;
+export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f9faf',
@@ -85,5 +90,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '500',
     color: '#2e64e5',
-  }
+  },
+  textPrivate: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginVertical: 35,
+    justifyContent: 'center',
+  },
+  color_textPrivate: {
+    fontSize: 13,
+    fontWeight: '400',
+    color: 'grey',
+  },
 });

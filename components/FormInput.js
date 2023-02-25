@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native';
-import Icons from 'react-native-vector-icons/FontAwesome';
+import Icons from 'react-native-vector-icons';
 import { windowHeight, windowWidth } from '../utils/Dimensions';
 
 const FormInput = ({ labelValue, placeHolderText, iconType, ...rest }) => {
