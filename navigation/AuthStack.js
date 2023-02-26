@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { OnboardingScreen } from '../screens/OnboardingScreen';
 import LoginScreen from '../screens/LoginScreen';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Icon } from '@rneui/themed';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,7 +52,7 @@ const AuthStack = () => {
                         },
                         headerLeft: () => {
                             <View>
-                                <FontAwesome.Button
+                                <Icon
                                     name='arrow-left'
                                     size={25}
                                     backgroundColor='#f9fafd'

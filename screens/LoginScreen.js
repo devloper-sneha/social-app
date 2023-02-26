@@ -16,7 +16,7 @@ const LoginScreen = ({ navigation }) => {
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
         placeHolderText="Email"
-        iconType="user"
+        iconType="person"
         keyboardType="email-address"
         autoCapitalize="none"
         autoCorrect={false}
@@ -38,15 +38,11 @@ const LoginScreen = ({ navigation }) => {
       <SocialButton
         buttonTitle="Sign In with Facebook"
         buttonType="facebook"
-        color="#4867aa"
-        backgroundColor="#e6eaf4"
         onPress={() => { }}
       />
       <SocialButton
         buttonTitle="Sign In with Google"
         buttonType="google"
-        color="#de4d41"
-        backgroundColor="#f5e7ea"
         onPress={() => { }}
       />
       <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate("SignUp")}>

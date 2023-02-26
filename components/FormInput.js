@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native';
-import Icons from 'react-native-vector-icons';
+import { Icon } from '@rneui/themed';
 import { windowHeight, windowWidth } from '../utils/Dimensions';
 
 const FormInput = ({ labelValue, placeHolderText, iconType, ...rest }) => {
     return (
         <View style={styles.inputContainer}>
             <View style={styles.iconStyle}>
-                <Icons name={iconType} size={25} color="#666" />
+                <Icon name={iconType} size={25} color="#666" type='material-icon' />
             </View>
             <TextInput
                 style={styles.input}

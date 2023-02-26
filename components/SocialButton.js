@@ -1,18 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { windowHeight } from '../utils/Dimensions';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { SocialIcon } from '@rneui/themed';
 
-const SocialButton = ({ buttonTitle, color, buttonType, backgroundColor, ...rest }) => {
+const SocialButton = ({ buttonTitle, buttonType, ...rest }) => {
     return (
-        <TouchableOpacity style={[styles.buttonContainer, { backgroundColor: backgroundColor }]} {...rest}>
-            <View style={styles.iconWrapper}>
-                <Icon name={buttonType} size={22} color={color} style={styles.icon} />
-            </View>
-            <View style={styles.btnTextWrapper}>
-                <Text style={[styles.buttonText,{color:color}]}>{buttonTitle}</Text>
-            </View>
-
+        <TouchableOpacity style={styles.buttonContainer}>
+                <SocialIcon
+                  type={buttonType}
+                  onPress={() => {
+                    alert({buttonTitle});
+                  }}
+                />
+                <Text style={{textAlign: 'center'}}>{buttonTitle}</Text>
         </TouchableOpacity>
     )
 }
@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
         width: '100%',
         height: windowHeight / 15,
-        backgroundColor: '#2e64e5',
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 3,
+        flexDirection: 'column'
     },
     iconWrapper:{
         width:30,

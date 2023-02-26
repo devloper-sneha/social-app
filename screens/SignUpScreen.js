@@ -4,7 +4,7 @@ import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
 import SocialButton from '../components/SocialButton';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -43,15 +43,11 @@ const SignUpScreen = () => {
       <SocialButton
         buttonTitle="Sign In with Facebook"
         buttonType="facebook"
-        color="#4867aa"
-        backgroundColor="#e6eaf4"
         onPress={() => { }}
       />
       <SocialButton
         buttonTitle="Sign In with Google"
         buttonType="google"
-        color="#de4d41"
-        backgroundColor="#f5e7ea"
         onPress={() => { }}
       />
       <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate("SignUp")}>
