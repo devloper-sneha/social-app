@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
 import SocialButton from '../components/SocialButton';
+import { AuthContext } from '../navigation/AppProvider';
 
 const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const {register}=useContext(AuthContext)
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Create an account</Text>
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
-        placeHolderText="Email"
-        iconType="user"
-        keyboardType="email-address"
+        placeHolderText="Name"
+        iconType="person"
         autoCapitalize="none"
         autoCorrect={false}
       />
@@ -26,16 +28,23 @@ const SignUpScreen = ({navigation}) => {
         iconType="lock"
         secureTextEntry={true}
       />
+      <FormInput
+        labelValue={password}
+        onChangeText={(userPassword) => setConfirmPassword(userPassword)}
+        placeHolderText="Password"
+        iconType="lock"
+        secureTextEntry={true}
+      />
       <FormButton
         buttonTitle="Sign Up"
-        onPress={() => Alert.alert("Signed up")}
+        onPress={() => register(email,password)}
       />
       <View style={styles.textPrivate} onPress={() => { }}>
         <Text style={styles.color_textPrivate}>By registering, you confirm that you accept our </Text>
         <TouchableOpacity onPress={()=>alert("Terms of service")}>
           <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>Terms of Service</Text>
         </TouchableOpacity>
-        <Text style={styles.color_textPrivate}>and</Text>
+        <Text style={styles.color_textPrivate}> and </Text>
         <TouchableOpacity onPress={()=>alert("TPrivacy Policy")}>
           <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>Privacy Policy.</Text>
         </TouchableOpacity>
@@ -50,8 +59,8 @@ const SignUpScreen = ({navigation}) => {
         buttonType="google"
         onPress={() => { }}
       />
-      <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate("SignUp")}>
-        <Text style={styles.navButtonText}>Don't have an account? Create here</Text>
+      <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate("Login")}>
+        <Text style={styles.navButtonText}>Have an account? Login here.</Text>
       </TouchableOpacity>
     </View>
   )

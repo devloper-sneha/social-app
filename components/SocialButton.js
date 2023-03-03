@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { windowHeight } from '../utils/Dimensions';
 import { SocialIcon } from '@rneui/themed';
 
@@ -11,6 +11,7 @@ const SocialButton = ({ buttonTitle, buttonType, ...rest }) => {
                   onPress={() => {
                     alert({buttonTitle});
                   }}
+                  iconSize={20}
                 />
                 <Text style={{textAlign: 'center'}}>{buttonTitle}</Text>
         </TouchableOpacity>
@@ -27,8 +28,11 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 3,
-        flexDirection: 'column'
+        borderRadius: 50,
+        flexDirection: 'row',
+        borderColor:'grey',
+        borderWidth:1,
+        paddingVertical:5,
     },
     iconWrapper:{
         width:30,

@@ -16,7 +16,7 @@ const LoginScreen = ({ navigation }) => {
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
         placeHolderText="Email"
-        iconType="person"
+        iconType="mail"
         keyboardType="email-address"
         autoCapitalize="none"
         autoCorrect={false}
