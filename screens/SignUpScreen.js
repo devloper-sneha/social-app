@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
 import SocialButton from '../components/SocialButton';
@@ -9,14 +9,14 @@ const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const {register}=useContext(AuthContext)
+  const {register,googleLogin}=useContext(AuthContext)
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Create an account</Text>
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
-        placeHolderText="Name"
+        placeHolderText="Email"
         iconType="person"
         autoCapitalize="none"
         autoCorrect={false}
@@ -29,7 +29,7 @@ const SignUpScreen = ({navigation}) => {
         secureTextEntry={true}
       />
       <FormInput
-        labelValue={password}
+        labelValue={confirmPassword}
         onChangeText={(userPassword) => setConfirmPassword(userPassword)}
         placeHolderText="Password"
         iconType="lock"
@@ -57,7 +57,7 @@ const SignUpScreen = ({navigation}) => {
       <SocialButton
         buttonTitle="Sign In with Google"
         buttonType="google"
-        onPress={() => { }}
+        onPress={() => {()=>googleLogin()}}
       />
       <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate("Login")}>
         <Text style={styles.navButtonText}>Have an account? Login here.</Text>

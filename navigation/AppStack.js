@@ -1,11 +1,9 @@
 import React from 'react'
-import { View } from 'react-native'
+import HomeScreen from '../screens/HomeScreen'
 
 const AppStack = () => {
   return (
-   <View>
-    
-   </View>
+    <HomeScreen />
   )
 }
 
